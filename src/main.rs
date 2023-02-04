@@ -3,7 +3,7 @@ use wit_component::ComponentEncoder;
 mod host_impl;
 
 fn encode_wasm_component(path: &str, output: Option<String>) {
-    let file_bytes = wat::parse_file(path).expect("Wat parse wasm file error");
+    let file_bytes = std::fs::read(path).expect("Wat parse wasm file error");
     let wasi_adapter = std::fs::read("./wasi_snapshot_preview1.wasm").unwrap();
 
     let component = ComponentEncoder::default()
