@@ -1,0 +1,7 @@
+interface simple {
+  print: func()
+}
+
+default world test-world {
+  export exports: self.simple
+}

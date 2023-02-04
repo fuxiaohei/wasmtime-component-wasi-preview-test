@@ -1,0 +1,18 @@
+[package]
+name = "wasmtime-component-wasi-preview-test"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+wat = "1.0.57"
+wit-component = "0.5.1"
+wasmtime = { git = "https://github.com/bytecodealliance/wasmtime", features = [
+    "component-model",
+    "async"
+] }
+wasi-host = { git = "https://github.com/bytecodealliance/preview2-prototyping", package = "host" }
+wasi-cap-std-sync = { git = "https://github.com/bytecodealliance/preview2-prototyping" }
+tokio = { version = "1.25.0", features = ["rt-multi-thread"] }
+
+[workspace]
+members = ["wasm_lib"]

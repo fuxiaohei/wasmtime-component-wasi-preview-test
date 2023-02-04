@@ -1,0 +1,11 @@
+[package]
+name = "wasm_lib"
+version = "0.1.0"
+edition = "2021"
+
+
+[dependencies]
+wit-bindgen-guest-rust = { git = "https://github.com/bytecodealliance/wit-bindgen" }
+
+[lib]
+crate-type = ["cdylib"]
