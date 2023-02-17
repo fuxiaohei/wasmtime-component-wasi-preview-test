@@ -1,4 +1,4 @@
-wit_bindgen_guest_rust::generate!("world" in "../wit");
+wit_bindgen::generate!("world" in "../wit");
 
 pub struct WorldImpl;
 

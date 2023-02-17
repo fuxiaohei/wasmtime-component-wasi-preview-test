@@ -5,7 +5,7 @@ edition = "2021"
 
 
 [dependencies]
-wit-bindgen-guest-rust = { git = "https://github.com/bytecodealliance/wit-bindgen" }
+wit-bindgen = { git = "https://github.com/bytecodealliance/wit-bindgen" }
 
 [lib]
 crate-type = ["cdylib"]
