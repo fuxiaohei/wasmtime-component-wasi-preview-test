@@ -4,7 +4,8 @@ pub struct WorldImpl;
 
 impl exports::Exports for WorldImpl {
     fn print() {
-        println!("Hello, world!");
+        let utc = time::OffsetDateTime::now_utc();
+        println!("Hello, world!, {:?}", utc);
     }
 }
 

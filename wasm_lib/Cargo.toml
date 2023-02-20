@@ -3,9 +3,9 @@ name = "wasm_lib"
 version = "0.1.0"
 edition = "2021"
 
-
 [dependencies]
 wit-bindgen = { git = "https://github.com/bytecodealliance/wit-bindgen" }
+time = "0.3.19"
 
 [lib]
 crate-type = ["cdylib"]
