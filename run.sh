@@ -6,5 +6,4 @@ cargo run --release
 
 curl https://wasmtime.dev/install.sh -sSf | bash
 cargo build --release --target wasm32-wasi -p wasm_module
-source ~/.bashrc
-wasmtime target/wasm32-wasi/release/wasm_module.wasm
+~/.wasmtime/bin/wasmtime target/wasm32-wasi/release/wasm_module.wasm
