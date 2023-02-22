@@ -15,4 +15,4 @@ wasi-cap-std-sync = { git = "https://github.com/bytecodealliance/preview2-protot
 tokio = { version = "1.25.0", features = ["rt-multi-thread"] }
 
 [workspace]
-members = ["wasm_lib"]
+members = ["wasm_lib", "wasm_module"]

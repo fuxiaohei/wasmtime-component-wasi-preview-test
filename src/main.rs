@@ -1,3 +1,4 @@
+use wasmtime::{Config, Engine, Store};
 use wit_component::ComponentEncoder;
 
 mod host_impl;
@@ -20,8 +21,8 @@ fn encode_wasm_component(path: &str, output: Option<String>) {
     println!("Convert wasm module to component success, {}", &output)
 }
 
-fn create_wasmtime_config() -> wasmtime::Config {
-    let mut config = wasmtime::Config::new();
+fn create_wasmtime_config() -> Config {
+    let mut config = Config::new();
     config.wasm_component_model(true);
     config.async_support(true);
     config
@@ -29,17 +30,23 @@ fn create_wasmtime_config() -> wasmtime::Config {
 
 #[tokio::main]
 pub async fn main() {
+    println!("call wasm_lib");
+    call_wasm_lib().await;
+}
+
+async fn call_wasm_lib() {
     let target = "target/wasm32-wasi/release/wasm_lib.wasm";
     let output = "target/wasm32-wasi/release/wasm_lib.component.wasm";
+
     encode_wasm_component(target, Some(output.to_string()));
     println!("Run component: {}", output);
 
-    let engine = wasmtime::Engine::new(&create_wasmtime_config()).unwrap();
+    let engine = Engine::new(&create_wasmtime_config()).unwrap();
     let component = wasmtime::component::Component::from_file(&engine, output).unwrap();
     let mut linker = wasmtime::component::Linker::new(&engine);
     wasi_host::add_to_linker(&mut linker, |x| x).unwrap();
 
-    let mut store = wasmtime::Store::new(
+    let mut store = Store::new(
         &engine,
         wasi_cap_std_sync::WasiCtxBuilder::new()
             .inherit_stdio()
