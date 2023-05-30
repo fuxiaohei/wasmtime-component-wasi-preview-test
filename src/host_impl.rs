@@ -1,5 +1,4 @@
 wasmtime::component::bindgen!({
-    world:"world",
-    path: "./wit/world.wit",
+    path: "./wit",
     async:true,
 });

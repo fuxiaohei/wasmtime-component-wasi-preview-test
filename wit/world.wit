@@ -1,7 +1,9 @@
-interface simple {
+package foo:bar
+
+interface export-iface {
   print: func()
 }
 
-default world test-world {
-  export exports: self.simple
+world test-world {
+  export export-iface
 }

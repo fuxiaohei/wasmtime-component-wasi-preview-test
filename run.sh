@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-curl -vL https://github.com/bytecodealliance/preview2-prototyping/releases/download/latest/wasi_snapshot_preview1.wasm --output wasi_snapshot_preview1.wasm
+curl -vL https://github.com/bytecodealliance/wasmtime/releases/download/dev/wasi_snapshot_preview1.reactor.wasm --output wasi_snapshot_preview1.reactor.wasm
 cargo build --release --target wasm32-wasi -p wasm_lib
 cargo run --release
 

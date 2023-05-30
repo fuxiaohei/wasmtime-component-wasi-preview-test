@@ -4,8 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-wit-bindgen = { git = "https://github.com/bytecodealliance/wit-bindgen" }
-time = "0.3.19"
+wit-bindgen = "0.7.0"
+time = "0.3.21"
 
 [lib]
 crate-type = ["cdylib"]
