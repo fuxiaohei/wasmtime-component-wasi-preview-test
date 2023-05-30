@@ -86,12 +86,15 @@ async fn call_wasm_lib() {
     let context = Context::new();
     let mut store = Store::new(&engine, context);
 
+    let str = String::from("abcccc");
+    let arg1 = host_impl::exports::foo::bar::export_iface::Arg1 { a: &str, b: 111 };
+
     let (exports, _) = host_impl::TestWorld::instantiate_async(&mut store, &component, &linker)
         .await
         .unwrap();
     exports
         .foo_bar_export_iface()
-        .call_print(&mut store)
+        .call_print(&mut store, arg1)
         .await
         .unwrap();
 }

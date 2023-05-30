@@ -1,7 +1,14 @@
 package foo:bar
 
 interface export-iface {
-  print: func()
+  type test-str = string
+
+  record arg1{
+    a: test-str,
+    b: u32,
+  }
+
+  print: func(arg1:arg1)
 }
 
 world test-world {
